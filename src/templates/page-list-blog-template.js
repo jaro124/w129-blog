@@ -1,10 +1,9 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { Link } from "gatsby";
-import Layout from "../components/core/layout";
-import Seo from "../components/core/seo";
-import PostHeader from "../components/post-header";
-import PostListNavigation from "../components/post-list-navigation";
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from "../components/core/layout"
+import Seo from "../components/core/seo"
+import PostHeader from "../components/post-header"
+import PostListNavigation from "../components/post-list-navigation"
 
 export const query = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
@@ -19,12 +18,18 @@ export const query = graphql`
             slug
             date
             tags
+            hero_image_alt
+            hero_image {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
         }
       }
     }
   }
-`;
+`
 
 const PostListTemplate = ({
   data,
@@ -40,31 +45,20 @@ const PostListTemplate = ({
           <h2 className="font-medium text-sm text-indigo-400 mb-4 uppercase tracking-wide">
             List of my blog posts
           </h2>
-          <hr className="w-1/2 border-2 mb-4 border-blue-400" />
           {edges.map((edge) => (
             <div className="mt-8" key={edge.node.id}>
               <PostHeader
                 title={edge.node.frontmatter.title}
                 subtitle={edge.node.frontmatter.subtitle}
+                excerpt={edge.node.excerpt}
                 date={edge.node.frontmatter.date}
                 tags={edge.node.frontmatter.tags}
+                slug={edge.node.frontmatter.slug}
+                hero_image={edge.node.frontmatter.hero_image}
+                hero_image_alt={edge.node.frontmatter.hero_image_alt}
               />
-
-              <div className="text-primary">{edge.node.excerpt}</div>
-
-              <div className="mt-4">
-                <button
-                  aria-label="Read post"
-                  className="bg-transparent hover:bg-blue-500 text-blue-700 dark:text-white font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mr-4 mt-2"
-                >
-                  <Link to={"/blog/" + edge.node.frontmatter.slug}>
-                    Read more
-                  </Link>
-                </button>
-              </div>
             </div>
           ))}
-
           <div>
             <PostListNavigation numPages={numPages} currentPage={currentPage} />
           </div>
@@ -72,9 +66,9 @@ const PostListTemplate = ({
       </div>
     </Layout>
   );
-};
+}
 
-export default PostListTemplate;
+export default PostListTemplate
 
 export const Head = () => (
   <Seo
@@ -82,4 +76,4 @@ export const Head = () => (
     description="List posts page"
     keywords={["Blog", "Post"]}
   />
-);
+)
