@@ -3,9 +3,8 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Starter Gatsby Blog`,
-    titleTemplate: "%s · Starter bolg",
-    description: `Gatsby and Tailwindcss starter`,
+    title: `w129 Blog`,
+    description: `Gatsby and Tailwindcss blog`,
     keywords: [`gatsby`, `tailwind`, `react`, `tailwindcss`],
     author: `@doe`,
     siteUrl: "https://www.doe.com", // No trailing slash allowed!

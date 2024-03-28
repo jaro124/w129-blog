@@ -25,7 +25,7 @@ const BlogPost = ({ data, children }) => {
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
       <div className="px-4">
-        <div className="max-w-4xl bg-white dark:bg-black rounded-lg mx-auto my-8 p-16">
+        <div className="max-w-5xl bg-white dark:bg-black rounded-lg mx-auto my-8 p-16">
           <h1 className="text-4xl font-bold text-slate-500 dark:text-slate-200 mb-2">
             {data.mdx.frontmatter.title}
           </h1>

@@ -40,7 +40,7 @@ const PostListTemplate = ({
   return (
     <Layout>
       <div className="px-4">
-        <div className="max-w-4xl bg-white dark:bg-black rounded-lg mx-auto my-8 p-16">
+        <div className="max-w-5xl bg-white dark:bg-black rounded-lg mx-auto my-8 p-16">
           <h1 className="text-2xl font-medium text-primary mb-2">My blog</h1>
           <h2 className="font-medium text-sm text-indigo-400 mb-4 uppercase tracking-wide">
             List of my blog posts

@@ -7,7 +7,7 @@ const AboutPage = () => {
   return (
     <Layout pageTitle="About Page">
       <div className="px-4">
-        <div className="max-w-4xl bg-white dark:bg-black rounded-lg mx-auto my-8 p-16">
+        <div className="max-w-5xl bg-white dark:bg-black rounded-lg mx-auto my-8 p-16">
           <h1 className="text-2xl font-medium text-black dark:text-gray-400 mb-2">
             About me
           </h1>
